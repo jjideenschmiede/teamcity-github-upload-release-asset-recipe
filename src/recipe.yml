@@ -1,0 +1,43 @@
+name: jjideenschmiede/github-upload-release-asset
+title: GitHub Upload Release Asset
+version: 1.0.1
+description: |
+  Uploads a file as an asset to a GitHub release using the GitHub API.
+  Requires a GitHub personal access token with repository permissions.
+inputs:
+  - env.input_repository:
+      type: text
+      required: true
+      label: Repository
+      description: |
+        GitHub repository in "owner/repo" format (e.g., "JetBrains/teamcity-recipes").
+  - env.input_release_id:
+      type: text
+      required: false
+      label: Release ID
+      description: |
+        The ID of the GitHub release to upload the asset to.
+        Can be obtained from GitHub API or release URL.
+  - env.input_github_access_token:
+      type: password
+      required: true
+      label: GitHub Access Token
+      description: |
+        GitHub personal access token with "repo" permissions.
+        Create one at: https://github.com/settings/tokens
+  - env.input_asset_path:
+      type: text
+      required: true
+      label: Asset File Path
+      description: |
+        Path to the file to upload as a release asset.
+        Accepts absolute and relative paths.
+  - env.input_asset_name:
+      type: text
+      required: false
+      label: Asset Name
+      description: |
+        Name for the uploaded asset. If not provided, the filename will be used.
+steps:
+  - name: Upload Release Asset to GitHub
+    kotlin-script: !include src.main.kts
