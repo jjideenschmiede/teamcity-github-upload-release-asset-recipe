@@ -1,6 +1,6 @@
 name: jjideenschmiede/github-upload-release-asset
 title: GitHub Upload Release Asset
-version: 1.0.1
+version: 1.0.0
 description: |
   Uploads a file as an asset to a GitHub release using the GitHub API.
   Requires a GitHub personal access token with repository permissions.
